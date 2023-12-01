@@ -1,6 +1,7 @@
 import pandas
 import numpy
 from scipy import optimize
+import yaml
 
 from item import Items
 from recipe import Recipes
@@ -48,8 +49,16 @@ analysis = optimize.linprog(
     b_ub = b_ub
 )
 
-result = {k:v for k, v in zip(list(A.columns), analysis.x)}
-used_only = {k:v for k, v in result.items() if v > 0}
+coefficients =  numpy.around(analysis.x, 2).tolist()
+result = {k:v for k, v in zip(list(A.columns), coefficients)}
+used_recipes = {k:v for k, v in result.items() if v > 0}
 
-print(used_only)
-print("Total Sink Value: " + str(-analysis.fun) + " per minute")
+summary = {
+    "ppm": round(-analysis.fun, 2),
+    "recipes": used_recipes
+}
+
+print(summary)
+
+with open('summary.yaml', 'w') as file:
+    yaml.dump(summary, file, sort_keys=False)

@@ -70,9 +70,9 @@ Items = {
     'PURE_CRUDE_OIL_NODE' : Item(0, 8),
 
     # ores
+    'LIMESTONE' : Item(2),
     'IRON_ORE' : Item(1),
     'COPPER_ORE' : Item(3),
-    'LIMESTONE' : Item(2),
     'COAL' : Item(3),
     'CATERIUM_ORE' : Item(7),
     'RAW_QUARTZ' : Item(15),
@@ -122,8 +122,8 @@ Items = {
     'MODULAR_FRAME': Item(408),
     'HEAVY_MODULAR_FRAME': Item(11520),
     'FUSED_MODULAR_FRAME': Item(62840),
-    'PLASTIC' : Item(75),
     'FABRIC': Item(140),
+    'PLASTIC' : Item(75),
     'RUBBER' : Item(60),
 
     # industrial parts
