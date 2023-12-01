@@ -19,14 +19,29 @@ Recipes = {
     'URANIUM_POWER': Recipe('NUCLEAR_POWER_PLANT', [Ingredient('URANIUM_FUEL_ROD', 0.2)], [Ingredient('URANIUM_WASTE', 10)]),
     'PLUTONIUM_POWER': Recipe('NUCLEAR_POWER_PLANT', [Ingredient('PLUTONIUM_FUEL_ROD', 0.1)], [Ingredient('PLUTONIUM_WASTE', 1)]),
 
-    # liquid extraction
-    'WATER': Recipe('WATER_EXTRACTOR', [], [Ingredient('WATER', 120)]),
+    # fluids - well extraction
+    
+    'IMPURE_NITROGEN_GAS': Recipe('NITROGEN_GAS_WELL_EXTRACTOR', [Ingredient('IMPURE_NITROGEN_GAS_WELL', 1)], [Ingredient('NITROGEN_GAS', 75)]),
+    'NORMAL_NITROGEN_GAS': Recipe('NITROGEN_GAS_WELL_EXTRACTOR', [Ingredient('NORMAL_NITROGEN_GAS_WELL', 1)], [Ingredient('NITROGEN_GAS', 150)]),
+    'PURE_NITROGEN_GAS': Recipe('NITROGEN_GAS_WELL_EXTRACTOR', [Ingredient('PURE_NITROGEN_GAS_WELL', 1)], [Ingredient('NITROGEN_GAS', 300)]),
+    
+    'IMPURE_CRUDE_OIL_WELL': Recipe('OIL_WELL_EXTRACTOR', [Ingredient('IMPURE_CRUDE_OIL_WELL', 1)], [Ingredient('CRUDE_OIL', 75)]),
+    'NORMAL_CRUDE_OIL_WELL': Recipe('OIL_WELL_EXTRACTOR', [Ingredient('NORMAL_CRUDE_OIL_WELL', 1)], [Ingredient('CRUDE_OIL', 150)]),
+    'PURE_CRUDE_OIL_WELL': Recipe('OIL_WELL_EXTRACTOR', [Ingredient('PURE_CRUDE_OIL_WELL', 1)], [Ingredient('CRUDE_OIL', 300)]),
+    
+    'IMPURE_WATER_WELL': Recipe('WATER_WELL_EXTRACTOR', [Ingredient('IMPURE_WATER_WELL', 1)], [Ingredient('WATER', 75)]),
+    'NORMAL_WATER_WELL': Recipe('WATER_WELL_EXTRACTOR', [Ingredient('NORMAL_WATER_WELL', 1)], [Ingredient('WATER', 150)]),
+    'PURE_WATER_WELL': Recipe('WATER_WELL_EXTRACTOR', [Ingredient('PURE_WATER_WELL', 1)], [Ingredient('WATER', 300)]),
+    
+    # fluids - node extraction
+    
+    'WATER_EXTRACTOR': Recipe('WATER_EXTRACTOR', [], [Ingredient('WATER', 120)]),
+    
+    'IMPURE_CRUDE_OIL': Recipe('OIL_EXTRACTOR', [Ingredient('IMPURE_CRUDE_OIL_NODE', 1)], [Ingredient('CRUDE_OIL', 150)]),
+    'NORMAL_CRUDE_OIL': Recipe('OIL_EXTRACTOR', [Ingredient('NORMAL_CRUDE_OIL_NODE', 1)], [Ingredient('CRUDE_OIL', 300)]),
+    'PURE_CRUDE_OIL': Recipe('OIL_EXTRACTOR', [Ingredient('PURE_CRUDE_OIL_NODE', 1)], [Ingredient('CRUDE_OIL', 600)]),
 
-    'IMPURE_NITROGEN_GAS': Recipe('NITROGEN_GAS_EXTRACTOR', [Ingredient('IMPURE_NITROGEN_GAS_WELL', 1)], [Ingredient('NITROGEN_GAS', 75)]),
-    'NORMAL_NITROGEN_GAS': Recipe('NITROGEN_GAS_EXTRACTOR', [Ingredient('NORMAL_NITROGEN_GAS_WELL', 1)], [Ingredient('NITROGEN_GAS', 150)]),
-    'PURE_NITROGEN_GAS': Recipe('NITROGEN_GAS_EXTRACTOR', [Ingredient('PURE_NITROGEN_GAS_WELL', 1)], [Ingredient('NITROGEN_GAS', 300)]),
-
-    # ore recipies
+    # ores
     'IMPURE_IRON_ORE': Recipe('MINER_MK3', [Ingredient('IMPURE_IRON_NODE', 1)], [Ingredient('IRON_ORE', 300)]),
     'NORMAL_IRON_ORE': Recipe('MINER_MK3', [Ingredient('NORMAL_IRON_NODE', 1)], [Ingredient('IRON_ORE', 600)]),
     'PURE_IRON_ORE': Recipe('MINER_MK3', [Ingredient('PURE_IRON_NODE', 1)], [Ingredient('IRON_ORE', 780)]),
@@ -67,15 +82,7 @@ Recipes = {
     'NORMAL_SAM_ORE': Recipe('MINER_MK3', [Ingredient('NORMAL_SAM_NODE', 1)], [Ingredient('SAM_ORE', 600)]),
     'PURE_SAM_ORE': Recipe('MINER_MK3', [Ingredient('PURE_SAM_NODE', 1)], [Ingredient('SAM_ORE', 780)]),
 
-    # extractor recipes
-    'IMPURE_CRUDE_OIL': Recipe('OIL_EXTRACTOR', [Ingredient('IMPURE_CRUDE_OIL_NODE', 1)], [Ingredient('CRUDE_OIL', 150)]),
-    'NORMAL_CRUDE_OIL': Recipe('OIL_EXTRACTOR', [Ingredient('NORMAL_CRUDE_OIL_NODE', 1)], [Ingredient('CRUDE_OIL', 300)]),
-    'PURE_CRUDE_OIL': Recipe('OIL_EXTRACTOR', [Ingredient('PURE_CRUDE_OIL_NODE', 1)], [Ingredient('CRUDE_OIL', 600)]),
-
-    'NITRIC_ACID': Recipe('BLENDER', [Ingredient('NITROGEN_GAS', 120), Ingredient('WATER', 30), Ingredient('IRON_PLATE', 10)], [Ingredient('NITRIC_ACID', 30)]),
-    'UNPACKAGE_NITRIC_ACID': Recipe('PACKAGER', [Ingredient('PACKAGED_NITRIC_ACID', 20)], [Ingredient('NITRIC_ACID', 20), Ingredient('EMPTY_FLUID_TANK', 20)]),
-
-    # smelter recipies
+    # ingots
     'IRON_INGOT': Recipe('SMELTER', [Ingredient('IRON_ORE', 30)], [Ingredient('IRON_INGOT', 30)]),
     'IRON_ALLOY_INGOT': Recipe('FOUNDRY', [Ingredient('IRON_ORE', 20), Ingredient('COPPER_ORE', 20)], [Ingredient('IRON_INGOT', 50)]),
     'PURE_IRON_INGOT': Recipe('REFINERY', [Ingredient('IRON_ORE', 35), Ingredient('WATER', 20)], [Ingredient('IRON_INGOT', 65)]),
@@ -92,52 +99,62 @@ Recipes = {
     'COMPACTED_STEEL_INGOT': Recipe('FOUNDRY', [Ingredient('IRON_ORE', 22.5), Ingredient('COMPACTED_COAL', 11.25)], [Ingredient('STEEL_INGOT', 37.5)]),
     'SOLID_STEEL_INGOT': Recipe('FOUNDRY', [Ingredient('IRON_INGOT', 40), Ingredient('COAL', 40)], [Ingredient('STEEL_INGOT', 60)]),
 
-    'ALUMINA_SOLUTION': Recipe('REFINERY', [Ingredient('BAUXITE', 120), Ingredient('WATER', 180)], [Ingredient('ALUMINA_SOLUTION', 120), Ingredient('SILICA', 50)]),
-    'SLOPPY_ALUMINA': Recipe('REFINERY', [Ingredient('ALUMINA_SOLUTION', 200), Ingredient('WATER', 200)], [Ingredient('ALUMINA_SOLUTION', 240)]),
-    'UNPACKAGED_ALUMINA_SOLUTION': Recipe('PACKAGER', [Ingredient('PACKAGED_ALUMINA_SOLUTION', 120)], [Ingredient('ALUMINA_SOLUTION', 120), Ingredient('EMPTY_CANISTER', 120)]),
-    'ALUMINUM_SCRAP': Recipe('REFINERY', [Ingredient('ALUMINA_SOLUTION', 240), Ingredient('COAL', 120)], [Ingredient('ALUMINUM_SCRAP', 360), Ingredient('WATER', 120)]),
-    'ELECTRODE_ALUMINUM_SCRAP': Recipe('REFINERY', [Ingredient('ALUMINA_SOLUTION', 180), Ingredient('PETROLEUM_COKE', 60)], [Ingredient('ALUMINUM_SCRAP', 300), Ingredient('WATER', 105)]),
-    'INSTANT_SCRAP': Recipe('BLENDER', [Ingredient('BAUXITE', 150), Ingredient('COAL', 100), Ingredient('SULFURIC_ACID', 50), Ingredient('WATER', 60)], [Ingredient('ALUMINUM_SCRAP', 300), Ingredient('WATER', 50)]),
-
     'ALUMINUM_INGOT': Recipe('FOUNDRY', [Ingredient('ALUMINUM_SCRAP', 90), Ingredient('SILICA', 75)], [Ingredient('ALUMINUM_INGOT', 60)]),
     'PURE_ALUMINUM_INGOT': Recipe('SMELTER', [Ingredient('ALUMINUM_SCRAP', 60)], [Ingredient('ALUMINUM_INGOT', 30)]),
-
-    'SILICA': Recipe('CONSTRUCTOR', [Ingredient('RAW_QUARTZ', 22.5)], [Ingredient('SILICA', 37.5)]),
-    'CHEAP_SILICA': Recipe('ASSEMBLER', [Ingredient('RAW_QUARTZ', 11.25), Ingredient('LIMESTONE', 18.75)], [Ingredient('SILICA', 26.25)]),
-    'QUARTZ_CRYSTAL': Recipe('CONSTRUCTOR', [Ingredient('RAW_QUARTZ', 37.5)], [Ingredient('QUARTZ_CRYSTAL', 22.5)]),
-    'PURE_QUARTZ_CRYSTAL': Recipe('REFINERY', [Ingredient('RAW_QUARTZ', 67.5), Ingredient('LIMESTONE', 37.5)], [Ingredient('QUARTZ_CRYSTAL', 52.5)]),
-
-    'PLASTIC': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 30)], [Ingredient('PLASTIC', 20), Ingredient('HEAVY_OIL_RESIDUE', 10)]),
-    'RESIDUAL_PLASTIC': Recipe('REFINERY', [Ingredient('POLYMER_RESIN', 60), Ingredient('WATER', 20)], [Ingredient('PLASTIC', 20)]),
-    'RECYCLED_PLASTIC': Recipe('REFINERY', [Ingredient('RUBBER', 30), Ingredient('FUEL', 30)], [Ingredient('PLASTIC', 60)]),
-
-    'RUBBER': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 30)], [Ingredient('RUBBER', 20), Ingredient('HEAVY_OIL_RESIDUE', 20)]),
-    'RESIDUAL_RUBBER': Recipe('REFINERY', [Ingredient('POLYMER_RESIN', 40), Ingredient('WATER', 40)], [Ingredient('RUBBER', 20)]),
-    'RECYCLED_RUBBER': Recipe('REFINERY', [Ingredient('PLASTIC', 30), Ingredient('FUEL', 30)], [Ingredient('RUBBER', 60)]),
-
-    'UNPACKAGE_HEAVY_OIL_RESIDUE': Recipe('PACKAGER', [Ingredient('PACKAGED_HEAVY_OIL_RESIDUE', 20)], [Ingredient('HEAVY_OIL_RESIDUE', 20), Ingredient('EMPTY_CANISTER', 20)]),
-    'HEAVY_OIL_RESIDUE': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 30)], [Ingredient('HEAVY_OIL_RESIDUE', 40), Ingredient('POLYMER_RESIN', 20)]),
-    'POLYMER_RESIN': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 60)], [Ingredient('POLYMER_RESIN', 130), Ingredient('HEAVY_OIL_RESIDUE', 20)]),
-
-    'PETROLEUM_COKE': Recipe('REFINERY', [Ingredient('HEAVY_OIL_RESIDUE', 40)], [Ingredient('PETROLEUM_COKE', 120)]),
-    'COMPACTED_COAL': Recipe('ASSEMBLER', [Ingredient('COAL', 25), Ingredient('SULFUR', 25)], [Ingredient('COMPACTED_COAL', 25)]),
-
-    'FUEL': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 60)], [Ingredient('FUEL', 40), Ingredient('POLYMER_RESIN', 30)]),
-    'RESIDUAL_FUEL': Recipe('REFINERY', [Ingredient('HEAVY_OIL_RESIDUE', 60)], [Ingredient('FUEL', 40)]),
-    'UNPACKAGE_FUEL': Recipe('PACKAGER', [Ingredient('PACKAGED_FUEL', 60)], [Ingredient('FUEL', 60), Ingredient('EMPTY_CANISTER', 60)]),
-    'DILUTED_FUEL': Recipe('BLENDER', [Ingredient('HEAVY_OIL_RESIDUE', 50), Ingredient('WATER', 100)], [Ingredient('FUEL', 100)]),
-
-    'POLYESTER_FABRIC': Recipe('REFINERY', [Ingredient('POLYMER_RESIN', 30), Ingredient('WATER', 30)], [Ingredient('FABRIC', 60)]),
-
-    'TURBOFUEL': Recipe('REFINERY', [Ingredient('FUEL', 22.5), Ingredient('COMPACTED_COAL', 15)], [Ingredient('TURBOFUEL', 18.75)]),
-    'UNPACKAGE_TURBOFUEL': Recipe('PACKAGER', [Ingredient('PACKAGED_TURBOFUEL', 20)], [Ingredient('TURBOFUEL', 20), Ingredient('EMPTY_CANISTER', 20)]),
-    'TURBO_BLEND_FUEL': Recipe('BLENDER', [Ingredient('FUEL', 15), Ingredient('HEAVY_OIL_RESIDUE', 30), Ingredient('SULFUR', 22.5), Ingredient('PETROLEUM_COKE', 22.5)], [Ingredient('TURBOFUEL', 45)]),
-    'TURBO_HEAVY_FUEL': Recipe('REFINERY', [Ingredient('HEAVY_OIL_RESIDUE', 37.5), Ingredient('COMPACTED_COAL', 30)], [Ingredient('TURBOFUEL', 30)]),
-
+    
+    # minerals
+    
     'CONCRETE': Recipe('CONSTRUCTOR', [Ingredient('LIMESTONE', 45)], [Ingredient('CONCRETE', 15)]),
     'FINE_CONCRETE': Recipe('ASSEMBLER', [Ingredient('LIMESTONE', 30), Ingredient('SILICA', 7.5)], [Ingredient('CONCRETE', 25)]),
     'RUBBER_CONCRETE': Recipe('ASSEMBLER', [Ingredient('LIMESTONE', 50), Ingredient('RUBBER', 10)], [Ingredient('CONCRETE', 45)]),
     'WET_CONCRETE': Recipe('REFINERY', [Ingredient('LIMESTONE', 120), Ingredient('WATER', 100)], [Ingredient('CONCRETE', 80)]),
+    
+    'QUARTZ_CRYSTAL': Recipe('CONSTRUCTOR', [Ingredient('RAW_QUARTZ', 37.5)], [Ingredient('QUARTZ_CRYSTAL', 22.5)]),
+    'PURE_QUARTZ_CRYSTAL': Recipe('REFINERY', [Ingredient('RAW_QUARTZ', 67.5), Ingredient('LIMESTONE', 37.5)], [Ingredient('QUARTZ_CRYSTAL', 52.5)]),
+
+    'SILICA': Recipe('CONSTRUCTOR', [Ingredient('RAW_QUARTZ', 22.5)], [Ingredient('SILICA', 37.5)]),
+    'CHEAP_SILICA': Recipe('ASSEMBLER', [Ingredient('RAW_QUARTZ', 11.25), Ingredient('LIMESTONE', 18.75)], [Ingredient('SILICA', 26.25)]),
+    
+    'COPPER_POWDER': Recipe('CONSTRUCTOR', [Ingredient('COPPER_INGOT', 300)], [Ingredient('COPPER_POWDER', 50)]),
+    
+    'POLYMER_RESIN': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 60)], [Ingredient('POLYMER_RESIN', 130), Ingredient('HEAVY_OIL_RESIDUE', 20)]),
+    
+    'PETROLEUM_COKE': Recipe('REFINERY', [Ingredient('HEAVY_OIL_RESIDUE', 40)], [Ingredient('PETROLEUM_COKE', 120)]),
+    
+    'ALUMINUM_SCRAP': Recipe('REFINERY', [Ingredient('ALUMINA_SOLUTION', 240), Ingredient('COAL', 120)], [Ingredient('ALUMINUM_SCRAP', 360), Ingredient('WATER', 120)]),
+    'ELECTRODE_ALUMINUM_SCRAP': Recipe('REFINERY', [Ingredient('ALUMINA_SOLUTION', 180), Ingredient('PETROLEUM_COKE', 60)], [Ingredient('ALUMINUM_SCRAP', 300), Ingredient('WATER', 105)]),
+    'INSTANT_SCRAP': Recipe('BLENDER', [Ingredient('BAUXITE', 150), Ingredient('COAL', 100), Ingredient('SULFURIC_ACID', 50), Ingredient('WATER', 60)], [Ingredient('ALUMINUM_SCRAP', 300), Ingredient('WATER', 50)]),
+
+    # fluids
+    
+    'UNPACKAGE_WATER': Recipe('PACKAGER', [Ingredient('PACKAGED_WATER', 120)], [Ingredient('WATER', 120), Ingredient('EMPTY_CANISTER', 120)]),
+    
+    'UNPACKAGE_OIL': Recipe('PACKAGER', [Ingredient('PACKAGED_OIL', 60)], [Ingredient('CRUDE_OIL', 60), Ingredient('EMPTY_CANISTER', 60)]),
+    
+    'HEAVY_OIL_RESIDUE': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 30)], [Ingredient('HEAVY_OIL_RESIDUE', 40), Ingredient('POLYMER_RESIN', 20)]),
+    'UNPACKAGE_HEAVY_OIL_RESIDUE': Recipe('PACKAGER', [Ingredient('PACKAGED_HEAVY_OIL_RESIDUE', 20)], [Ingredient('HEAVY_OIL_RESIDUE', 20), Ingredient('EMPTY_CANISTER', 20)]),
+    
+    'FUEL': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 60)], [Ingredient('FUEL', 40), Ingredient('POLYMER_RESIN', 30)]),
+    'RESIDUAL_FUEL': Recipe('REFINERY', [Ingredient('HEAVY_OIL_RESIDUE', 60)], [Ingredient('FUEL', 40)]),
+    'UNPACKAGE_FUEL': Recipe('PACKAGER', [Ingredient('PACKAGED_FUEL', 60)], [Ingredient('FUEL', 60), Ingredient('EMPTY_CANISTER', 60)]),
+    'DILUTED_FUEL': Recipe('BLENDER', [Ingredient('HEAVY_OIL_RESIDUE', 50), Ingredient('WATER', 100)], [Ingredient('FUEL', 100)]),
+    
+    'TURBOFUEL': Recipe('REFINERY', [Ingredient('FUEL', 22.5), Ingredient('COMPACTED_COAL', 15)], [Ingredient('TURBOFUEL', 18.75)]),
+    'UNPACKAGE_TURBOFUEL': Recipe('PACKAGER', [Ingredient('PACKAGED_TURBOFUEL', 20)], [Ingredient('TURBOFUEL', 20), Ingredient('EMPTY_CANISTER', 20)]),
+    'TURBO_BLEND_FUEL': Recipe('BLENDER', [Ingredient('FUEL', 15), Ingredient('HEAVY_OIL_RESIDUE', 30), Ingredient('SULFUR', 22.5), Ingredient('PETROLEUM_COKE', 22.5)], [Ingredient('TURBOFUEL', 45)]),
+    'TURBO_HEAVY_FUEL': Recipe('REFINERY', [Ingredient('HEAVY_OIL_RESIDUE', 37.5), Ingredient('COMPACTED_COAL', 30)], [Ingredient('TURBOFUEL', 30)]),
+    
+    'ALUMINA_SOLUTION': Recipe('REFINERY', [Ingredient('BAUXITE', 120), Ingredient('WATER', 180)], [Ingredient('ALUMINA_SOLUTION', 120), Ingredient('SILICA', 50)]),
+    'SLOPPY_ALUMINA': Recipe('REFINERY', [Ingredient('ALUMINA_SOLUTION', 200), Ingredient('WATER', 200)], [Ingredient('ALUMINA_SOLUTION', 240)]),
+    'UNPACKAGED_ALUMINA_SOLUTION': Recipe('PACKAGER', [Ingredient('PACKAGED_ALUMINA_SOLUTION', 120)], [Ingredient('ALUMINA_SOLUTION', 120), Ingredient('EMPTY_CANISTER', 120)]),
+    
+    'SULFURIC_ACID': Recipe('REFINERY', [Ingredient('SULFUR', 50), Ingredient('WATER', 50)], [Ingredient('SULFURIC_ACID', 50)]),
+    'UNPACKAGE_SULFURIC_ACID': Recipe('PACKAGER', [Ingredient('PACKAGED_SULFURIC_ACID', 60)], [Ingredient('SULFURIC_ACID', 60), Ingredient('EMPTY_CANISTER', 60)]),
+    
+    'NITRIC_ACID': Recipe('BLENDER', [Ingredient('NITROGEN_GAS', 120), Ingredient('WATER', 30), Ingredient('IRON_PLATE', 10)], [Ingredient('NITRIC_ACID', 30)]),
+    'UNPACKAGE_NITRIC_ACID': Recipe('PACKAGER', [Ingredient('PACKAGED_NITRIC_ACID', 20)], [Ingredient('NITRIC_ACID', 20), Ingredient('EMPTY_FLUID_TANK', 20)]),
+    
+    'UNPACKAGE_NITROGEN_GAS': Recipe('PACKAGER', [Ingredient('PACKAGED_NITROGEN_GAS', 60)], [Ingredient('NITROGEN_GAS', 240), Ingredient('EMPTY_CANISTER', 60)]),
 
     # standard parts
 
@@ -182,6 +199,42 @@ Recipes = {
     'FUSED_MODULAR_FRAME': Recipe('BLENDER', [Ingredient('HEAVY_MODULAR_FRAME', 1.5), Ingredient('ALUMINUM_CASING', 75), Ingredient('NITROGEN_GAS', 37.5)], [Ingredient('FUSED_MODULAR_FRAME', 1.5)]),
     'HEAT_FUSED_FRAME': Recipe('BLENDER', [Ingredient('HEAVY_MODULAR_FRAME', 3), Ingredient('ALUMINUM_INGOT', 150), Ingredient('NITRIC_ACID', 24), Ingredient('FUEL', 30)], [Ingredient('FUSED_MODULAR_FRAME', 3)]),
 
+    'POLYESTER_FABRIC': Recipe('REFINERY', [Ingredient('POLYMER_RESIN', 30), Ingredient('WATER', 30)], [Ingredient('FABRIC', 60)]),
+    
+    'PLASTIC': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 30)], [Ingredient('PLASTIC', 20), Ingredient('HEAVY_OIL_RESIDUE', 10)]),
+    'RESIDUAL_PLASTIC': Recipe('REFINERY', [Ingredient('POLYMER_RESIN', 60), Ingredient('WATER', 20)], [Ingredient('PLASTIC', 20)]),
+    'RECYCLED_PLASTIC': Recipe('REFINERY', [Ingredient('RUBBER', 30), Ingredient('FUEL', 30)], [Ingredient('PLASTIC', 60)]),
+
+    'RUBBER': Recipe('REFINERY', [Ingredient('CRUDE_OIL', 30)], [Ingredient('RUBBER', 20), Ingredient('HEAVY_OIL_RESIDUE', 20)]),
+    'RESIDUAL_RUBBER': Recipe('REFINERY', [Ingredient('POLYMER_RESIN', 40), Ingredient('WATER', 40)], [Ingredient('RUBBER', 20)]),
+    'RECYCLED_RUBBER': Recipe('REFINERY', [Ingredient('PLASTIC', 30), Ingredient('FUEL', 30)], [Ingredient('RUBBER', 60)]),
+    
+    # industrial parts
+
+    'ROTOR': Recipe('ASSEMBLER', [Ingredient('IRON_ROD', 20), Ingredient('SCREW', 100)], [Ingredient('ROTOR', 4)]),
+    'COPPER_ROTOR': Recipe('ASSEMBLER', [Ingredient('COPPER_SHEET', 22.5), Ingredient('SCREW', 195)], [Ingredient('ROTOR', 11.25)]),
+    'STEEL_ROTOR': Recipe('ASSEMBLER', [Ingredient('STEEL_PIPE', 10), Ingredient('WIRE', 30)], [Ingredient('ROTOR', 5)]),
+
+    'STATOR': Recipe('ASSEMBLER', [Ingredient('STEEL_PIPE', 15), Ingredient('WIRE', 40)], [Ingredient('STATOR', 5)]),
+    'QUICKWIRE_STATOR': Recipe('ASSEMBLER', [Ingredient('STEEL_PIPE', 16), Ingredient('QUICKWIRE', 60)], [Ingredient('STATOR', 8)]),
+
+    'BATTERY': Recipe('BLENDER', [Ingredient('ALUMINUM_CASING', 20), Ingredient('SULFURIC_ACID', 50), Ingredient('ALUMINA_SOLUTION', 40)], [Ingredient('BATTERY', 20), Ingredient('WATER', 30)]),
+    'CLASSIC_BATTERY': Recipe('MANUFACTURER', [Ingredient('SULFUR', 45), Ingredient('ALCLAD_ALUMINUM_SHEET', 52.5), Ingredient('PLASTIC', 60), Ingredient('WIRE', 90)], [Ingredient('BATTERY', 30)]),
+
+    'MOTOR': Recipe('ASSEMBLER', [Ingredient('ROTOR', 10), Ingredient('STATOR', 10)], [Ingredient('MOTOR', 5)]),
+    'ELECTRIC_MOTOR': Recipe('ASSEMBLER', [Ingredient('ROTOR', 7.5), Ingredient('ELECTROMAGNETIC_CONTROL_ROD', 3.75)], [Ingredient('MOTOR', 7.5)]),
+    'RIGOUR_MOTOR': Recipe('MANUFACTURER', [Ingredient('ROTOR', 3.75), Ingredient('STATOR', 37.5), Ingredient('CRYSTAL_OSCILLATOR', 1.25)], [Ingredient('MOTOR', 7.5)]),
+
+    'HEAT_SINK': Recipe('ASSEMBLER', [Ingredient('ALCLAD_ALUMINUM_SHEET', 37.5), Ingredient('COPPER_SHEET', 22.5)], [Ingredient('HEAT_SINK', 7.5)]),
+    'HEAT_EXCHANGER': Recipe('ASSEMBLER', [Ingredient('ALUMINUM_CASING', 30), Ingredient('RUBBER', 30)], [Ingredient('HEAT_SINK', 10)]),
+
+    'COOLING_SYSTEM': Recipe('BLENDER', [Ingredient('HEAT_SINK', 12), Ingredient('RUBBER', 12), Ingredient('WATER', 30), Ingredient('NITROGEN_GAS', 150)], [Ingredient('COOLING_SYSTEM', 6)]),
+    'COOLING_DEVICE': Recipe('BLENDER', [Ingredient('HEAT_SINK', 9.38), Ingredient('MOTOR', 1.88), Ingredient('NITROGEN_GAS', 45)], [Ingredient('COOLING_SYSTEM', 3.75)]),
+
+    'TURBO_MOTOR': Recipe('MANUFACTURER', [Ingredient('COOLING_SYSTEM', 7.5), Ingredient('RADIO_CONTROL_UNIT', 3.75), Ingredient('MOTOR', 7.5), Ingredient('RUBBER', 45)], [Ingredient('TURBO_MOTOR', 1.88)]),
+    'TURBO_ELECTRIC_MOTOR': Recipe('MANUFACTURER', [Ingredient('MOTOR', 6.56), Ingredient('RADIO_CONTROL_UNIT', 8.44), Ingredient('ELECTROMAGNETIC_CONTROL_ROD', 4.69), Ingredient('ROTOR', 6.56)], [Ingredient('TURBO_MOTOR', 2.81)]),
+    'TURBO_PRESSURE_MOTOR': Recipe('MANUFACTURER', [Ingredient('MOTOR', 7.5), Ingredient('PRESSURE_CONVERSION_CUBE',1.88), Ingredient('PACKAGED_NITROGEN_GAS', 45), Ingredient('STATOR', 15)], [Ingredient('TURBO_MOTOR', 3.75)]),
+
     # electronics
 
     'WIRE': Recipe('CONSTRUCTOR', [Ingredient('COPPER_INGOT', 15)], [Ingredient('WIRE', 30)]),
@@ -207,32 +260,6 @@ Recipes = {
     'HIGH_SPEED_CONNECTOR': Recipe('MANUFACTURER', [Ingredient('QUICKWIRE', 210), Ingredient('CABLE', 37.5), Ingredient('CIRCUIT_BOARD', 3.75)], [Ingredient('HIGH_SPEED_CONNECTOR', 3.75)]),
     'SILICON_HIGH_SPEED_CONNECTOR': Recipe('MANUFACTURER', [Ingredient('QUICKWIRE', 90), Ingredient('SILICA', 37.5), Ingredient('CIRCUIT_BOARD', 3)], [Ingredient('HIGH_SPEED_CONNECTOR', 3)]),
 
-    # industrial parts
-
-    'ROTOR': Recipe('ASSEMBLER', [Ingredient('IRON_ROD', 20), Ingredient('SCREW', 100)], [Ingredient('ROTOR', 4)]),
-    'COPPER_ROTOR': Recipe('ASSEMBLER', [Ingredient('COPPER_SHEET', 22.5), Ingredient('SCREW', 195)], [Ingredient('ROTOR', 11.25)]),
-    'STEEL_ROTOR': Recipe('ASSEMBLER', [Ingredient('STEEL_PIPE', 10), Ingredient('WIRE', 30)], [Ingredient('ROTOR', 5)]),
-
-    'STATOR': Recipe('ASSEMBLER', [Ingredient('STEEL_PIPE', 15), Ingredient('WIRE', 40)], [Ingredient('STATOR', 5)]),
-    'QUICKWIRE_STATOR': Recipe('ASSEMBLER', [Ingredient('STEEL_PIPE', 16), Ingredient('QUICKWIRE', 60)], [Ingredient('STATOR', 8)]),
-
-    'MOTOR': Recipe('ASSEMBLER', [Ingredient('ROTOR', 10), Ingredient('STATOR', 10)], [Ingredient('MOTOR', 5)]),
-    'ELECTRIC_MOTOR': Recipe('ASSEMBLER', [Ingredient('ROTOR', 7.5), Ingredient('ELECTROMAGNETIC_CONTROL_ROD', 3.75)], [Ingredient('MOTOR', 7.5)]),
-    'RIGOUR_MOTOR': Recipe('MANUFACTURER', [Ingredient('ROTOR', 3.75), Ingredient('STATOR', 37.5), Ingredient('CRYSTAL_OSCILLATOR', 1.25)], [Ingredient('MOTOR', 7.5)]),
-
-    'BATTERY': Recipe('BLENDER', [Ingredient('ALUMINUM_CASING', 20), Ingredient('SULFURIC_ACID', 50), Ingredient('ALUMINA_SOLUTION', 40)], [Ingredient('BATTERY', 20), Ingredient('WATER', 30)]),
-    'CLASSIC_BATTERY': Recipe('MANUFACTURER', [Ingredient('SULFUR', 45), Ingredient('ALCLAD_ALUMINUM_SHEET', 52.5), Ingredient('PLASTIC', 60), Ingredient('WIRE', 90)], [Ingredient('BATTERY', 30)]),
-
-    'HEAT_SINK': Recipe('ASSEMBLER', [Ingredient('ALCLAD_ALUMINUM_SHEET', 37.5), Ingredient('COPPER_SHEET', 22.5)], [Ingredient('HEAT_SINK', 7.5)]),
-    'HEAT_EXCHANGER': Recipe('ASSEMBLER', [Ingredient('ALUMINUM_CASING', 30), Ingredient('RUBBER', 30)], [Ingredient('HEAT_SINK', 10)]),
-
-    'COOLING_SYSTEM': Recipe('BLENDER', [Ingredient('HEAT_SINK', 12), Ingredient('RUBBER', 12), Ingredient('WATER', 30), Ingredient('NITROGEN_GAS', 150)], [Ingredient('COOLING_SYSTEM', 6)]),
-    'COOLING_DEVICE': Recipe('BLENDER', [Ingredient('HEAT_SINK', 9.38), Ingredient('MOTOR', 1.88), Ingredient('NITROGEN_GAS', 45)], [Ingredient('COOLING_SYSTEM', 3.75)]),
-
-    'TURBO_MOTOR': Recipe('MANUFACTURER', [Ingredient('COOLING_SYSTEM', 7.5), Ingredient('RADIO_CONTROL_UNIT', 3.75), Ingredient('MOTOR', 7.5), Ingredient('RUBBER', 45)], [Ingredient('TURBO_MOTOR', 1.88)]),
-    'TURBO_ELECTRIC_MOTOR': Recipe('MANUFACTURER', [Ingredient('MOTOR', 6.56), Ingredient('RADIO_CONTROL_UNIT', 8.44), Ingredient('ELECTROMAGNETIC_CONTROL_ROD', 4.69), Ingredient('ROTOR', 6.56)], [Ingredient('TURBO_MOTOR', 2.81)]),
-    'TURBO_PRESSURE_MOTOR': Recipe('MANUFACTURER', [Ingredient('MOTOR', 7.5), Ingredient('PRESSURE_CONVERSION_CUBE',1.88), Ingredient('PACKAGED_NITROGEN_GAS', 45), Ingredient('STATOR', 15)], [Ingredient('TURBO_MOTOR', 3.75)]),
-
     # communication
 
     'COMPUTER': Recipe('MANUFACTURER', [Ingredient('CIRCUIT_BOARD', 25), Ingredient('CABLE', 22.5), Ingredient('PLASTIC', 45), Ingredient('SCREW', 130)], [Ingredient('COMPUTER', 2.5)]),
@@ -249,7 +276,6 @@ Recipes = {
 
     'CRYSTAL_OSCILLATOR': Recipe('MANUFACTURER', [Ingredient('QUARTZ_CRYSTAL', 18), Ingredient('CABLE', 14), Ingredient('REINFORCED_IRON_PLATE', 2.5)], [Ingredient('CRYSTAL_OSCILLATOR', 1)]),
     'INSULATED_CRYSTAL_OSCILLATOR': Recipe('MANUFACTURER', [Ingredient('QUARTZ_CRYSTAL', 18.75), Ingredient('RUBBER', 13.13), Ingredient('AI_LIMITER', 1.88)], [Ingredient('CRYSTAL_OSCILLATOR', 1.88)]),
-    
 
     # containers
 
@@ -266,6 +292,17 @@ Recipes = {
     'PACKAGED_SULFURIC_ACID': Recipe('PACKAGER', [Ingredient('SULFURIC_ACID', 40), Ingredient('EMPTY_CANISTER', 40)], [Ingredient('PACKAGED_SULFURIC_ACID', 40)]),
     'PACKAGED_NITRIC_ACID': Recipe('PACKAGER', [Ingredient('NITRIC_ACID', 30), Ingredient('EMPTY_FLUID_TANK', 30)], [Ingredient('PACKAGED_NITRIC_ACID', 30)]),
     'PACKAGED_NITROGEN_GAS': Recipe('PACKAGER', [Ingredient('NITROGEN_GAS', 240), Ingredient('EMPTY_FLUID_TANK', 60)], [Ingredient('PACKAGED_NITROGEN_GAS', 60)]),
+    
+    # fuels
+    
+    'COMPACTED_COAL': Recipe('ASSEMBLER', [Ingredient('COAL', 25), Ingredient('SULFUR', 25)], [Ingredient('COMPACTED_COAL', 25)]),
+    'PACKAGED_OIL': Recipe('PACKAGER', [Ingredient('CRUDE_OIL', 30), Ingredient('EMPTY_CANISTER', 30)], [Ingredient('PACKAGED_OIL', 30)]),
+    'PACKAGED_HEAVY_OIL_RESIDUE': Recipe('PACKAGER', [Ingredient('HEAVY_OIL_RESIDUE', 30), Ingredient('EMPTY_CANISTER', 30)], [Ingredient('PACKAGED_HEAVY_OIL_RESIDUE', 30)]),
+    
+    'PACKAGED_FUEL': Recipe('PACKAGER', [Ingredient('FUEL', 40), Ingredient('EMPTY_CANISTER', 40)], [Ingredient('PACKAGED_FUEL', 40)]),
+    'DILUTED_PACKAGED_FUEL': Recipe('REFINERY', [Ingredient('HEAVY_OIL_RESIDUE', 30), Ingredient('PACKAGED_WATER', 60)], [Ingredient('PACKAGED_FUEL', 60)]),
+    
+    'PACKAGED_TURBOFUEL': Recipe('PACKAGER', [Ingredient('TURBOFUEL', 20), Ingredient('EMPTY_CANISTER', 20)], [Ingredient('PACKAGED_TURBOFUEL', 20)]),
 
     # consumables
     
@@ -315,11 +352,6 @@ Recipes = {
 
     'THERMAL_PROPULSION_ROCKET': Recipe('MANUFACTURER', [Ingredient('MODULAR_ENGINE', 2.5), Ingredient('TURBO_MOTOR', 1), Ingredient('COOLING_SYSTEM', 3), Ingredient('FUSED_MODULAR_FRAME', 1)], [Ingredient('THERMAL_PROPULSION_ROCKET', 1)]),
 
-    'COPPER_POWDER': Recipe('CONSTRUCTOR', [Ingredient('COPPER_INGOT', 300)], [Ingredient('COPPER_POWDER', 50)]),
     'NUCLEAR_PASTA': Recipe('PARTICAL_ACCELERATOR_NUCLEAR_PASTA', [Ingredient('COPPER_POWDER', 100), Ingredient('PRESSURE_CONVERSION_CUBE', 0.5)], [Ingredient('NUCLEAR_PASTA', 0.5)]),
-
-    # stuff
-
-    'PACKAGED_NITROGEN_GAS': Recipe('PACKAGER', [Ingredient('NITROGEN_GAS', 240), Ingredient('EMPTY_FLUID_TANK', 26040)], [Ingredient('PACKAGED_NITROGEN_GAS', 60)]),
 
 }

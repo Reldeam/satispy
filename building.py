@@ -21,7 +21,9 @@ Buildings = {
 
     # This was calculated by averaging out the energy cost of the 6
     # pressurisers (150MW) across the 45 extractors.
-    'NITROGEN_GAS_EXTRACTOR': Building(67.16),
+    'NITROGEN_GAS_WELL_EXTRACTOR': Building(20),
+    'OIL_WELL_EXTRACTOR': Building(25),
+    'WATER_WELL_EXTRACTOR': Building(21.81),
 
     'MINER_MK1': Building(16.8), 
     'MINER_MK2': Building(52),
