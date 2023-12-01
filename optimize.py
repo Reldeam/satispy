@@ -58,7 +58,5 @@ summary = {
     "recipes": used_recipes
 }
 
-print(summary)
-
 with open('summary.yaml', 'w') as file:
     yaml.dump(summary, file, sort_keys=False)
