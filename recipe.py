@@ -7,8 +7,8 @@ class Recipe():
         self.result = result
 
 # All ingredients are in the form of items per minute.
-# Ore recipies are assumed to use a Mk.3 miner at 250% overclocking mining a 
-# normal node.
+# Ore recipies are assumed to use a Mk.3 miner at 250%.
+# Pure ore nodes are capped at 780 ore per minute.
 
 Recipes = {
 
