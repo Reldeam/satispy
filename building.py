@@ -1,5 +1,3 @@
-from enum import Enum, auto
-
 # power values are in MW of how much power the building uses
 # (negative values are power production)
 
@@ -42,8 +40,5 @@ Buildings = {
     'PARTICAL_ACCELERATOR_PLUTONIUM_PELLET': Building(500),
     'PARTICAL_ACCELERATOR_PLUTONIUM_CELL': Building(500),
     'PARTICAL_ACCELERATOR_NUCLEAR_PASTA': Building(750),
-    
-    
-    
     
 }
