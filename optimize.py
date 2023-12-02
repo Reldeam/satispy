@@ -13,7 +13,7 @@ from building import Buildings
 # Each row of the A matrix represents a recipe. Each column represents an item.
 # Inputs of a recipe are represented by a positive value, outputs are 
 # represented by a negative value. The value is the amount of the item used or 
-# produced.
+# produced per minute.
 A = pandas.DataFrame(columns = ['RECIPE'] + list(Items.keys()))
 
 # The c vector represents the sink value of each recipe. This is the objective
