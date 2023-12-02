@@ -5,6 +5,10 @@ per minute. The objective function is set to the points you get for each
 recipe, but this can be set to anything, so in the future I might add updates
 to maximise the output of specific recipes instead of points. 
 
+If you are just interested in the current results, I've added the 
+[summary.yaml](https://github.com/Reldeam/satispy/blob/main/summary.yaml) to the 
+repo, which I will keep updated.
+
 ## Assumptions
 
 - All miners, extractors, and pressurizers are overclocked at 250%.
@@ -22,13 +26,18 @@ innacurate if not all of the wells are utilized.
 
 ## Run
 
-Run `py optimize.py` to output a **summary.yaml** that contains the quantities of each recipe needed.
+Run `py optimize.py` to output a 
+[summary.yaml](https://github.com/Reldeam/satispy/blob/main/summary.yaml) that 
+contains the quantities of each recipe needed.
 
 While all of the recipes and alternative recipes in the game have been added,
 some may be found to have zero use when trying to maximise the objective function.
-All recipes that are not used will be exluded from the **summary.yaml** to help
-with readability (i.e. if a recipe is not present in the **summary.yaml** then
+All recipes that are not used will be exluded from the 
+[summary.yaml](https://github.com/Reldeam/satispy/blob/main/summary.yaml) to help
+with readability (i.e. if a recipe is not present in the 
+[summary.yaml](https://github.com/Reldeam/satispy/blob/main/summary.yaml) then
 you can assume that its value was zero). 
 
 ## Currently out of Scope
-This tool does not work out how to connect all of these recipies together, but that can be reverse engineered from the summary.
+This tool does not work out how to connect all of these recipies together, but 
+that can be reverse engineered from the summary.

@@ -82,8 +82,11 @@ all_recipes = {k:v for k, v in zip(list(A.columns), coefficients)}
 # ignore recipes that are not used
 used_recipes = {k:v for k, v in all_recipes.items() if v > 0}
 
+total_buildings = sum(used_recipes.values())
+
 summary = {
     "ppm": round(-analysis.fun, 2),
+    "total_buildings": total_buildings,
     "recipes": used_recipes
 }
 
