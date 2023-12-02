@@ -28,7 +28,7 @@ While all of the recipes and alternative recipes in the game have been added,
 some may be found to have zero use when trying to maximise the objective function.
 All recipes that are not used will be exluded from the **summary.yaml** to help
 with readability (i.e. if a recipe is not present in the **summary.yaml** then
-you can assume that it's value was zero). 
+you can assume that its value was zero). 
 
 ## Currently out of Scope
 This tool does not work out how to connect all of these recipies together, but that can be reverse engineered from the summary.
