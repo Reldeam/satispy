@@ -1,4 +1,3 @@
-
 # the item_value is the awesome sink value
 # the limit is the maximum number of that item that exists in the world
 
