@@ -12,27 +12,9 @@ from building import Buildings
 # recipe you don't want to use, and you can also set any item to be unsinkable.
 # This will make sure that the item is always 0 in the solution (i.e. no excess,
 # the item must be produced as much as it is consumed by recipes).
-disable_recipes = ['PLUTONIUM_POWER']
+disable_recipes = []
 disable_items = []
-unsinkable_items = [
-    
-    'WATER', 
-    'CRUDE_OIL',
-    'HEAVY_OIL_RESIDUE',
-    'FUEL',
-    'TURBOFUEL',
-    'ALUMINA_SOLUTION',
-    'SULFURIC_ACID',
-    'NITRIC_ACID',
-    'NITROGEN_GAS',
-    
-    'URANIUM_WASTE', 
-    'NON_FISSILE_URANIUM', 
-    'PLUTONIUM_PELLET',
-    'ENCASED_PLUTONIUM_CELL',
-    'PLUTONIUM_WASTE',
-    
-]
+unsinkable_items = []
 
 # ------------------------------------------------------------------------------
 # Populate the A matrix, c vector, and b_ub vector
