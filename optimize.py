@@ -13,6 +13,7 @@ from building import Buildings
 # This will make sure that the item is always 0 in the solution (i.e. no excess,
 # the item must be produced as much as it is consumed by recipes).
 disable_recipes = ['PLUTONIUM_POWER']
+disable_items = []
 unsinkable_items = ['WATER', 'URANIUM_WASTE', 'PLUTONIUM_WASTE']
 
 # ------------------------------------------------------------------------------
@@ -63,6 +64,9 @@ for key, recipe in Recipes.items():
 
 A_ub = A_ub.fillna(0)
 A_ub = A_ub.set_index('RECIPE')
+
+# remove disabled items
+A_ub = A_ub.drop(columns = disable_items)
 
 # build the b_ub vector
 for item in list(A_ub.columns):
