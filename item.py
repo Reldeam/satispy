@@ -145,7 +145,7 @@ Items = {
     # communications
     'COMPUTER' : Item(17260),
     'SUPERCOMPUTER': Item(99576),
-    'QUANTUM_COMPUTER': Item(200),
+    'QUANTUM_COMPUTER': Item(0),
     'RADIO_CONTROL_UNIT': Item(19600),
     'CRYSTAL_OSCILLATOR': Item(3072), 
 
