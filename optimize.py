@@ -126,7 +126,7 @@ total_buildings = sum(used_recipes.values())
 
 summary = {
     "ppm": round(-analysis.fun, 2),
-    "total_buildings": total_buildings,
+    "total_buildings": round(total_buildings, 2),
     "recipes": used_recipes
 }
 
