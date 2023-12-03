@@ -14,7 +14,25 @@ from building import Buildings
 # the item must be produced as much as it is consumed by recipes).
 disable_recipes = ['PLUTONIUM_POWER']
 disable_items = []
-unsinkable_items = ['WATER', 'URANIUM_WASTE', 'PLUTONIUM_WASTE']
+unsinkable_items = [
+    
+    'WATER', 
+    'CRUDE_OIL',
+    'HEAVY_OIL_RESIDUE',
+    'FUEL',
+    'TURBOFUEL',
+    'ALUMINA_SOLUTION',
+    'SULFURIC_ACID',
+    'NITRIC_ACID',
+    'NITROGEN_GAS',
+    
+    'URANIUM_WASTE', 
+    'NON_FISSILE_URANIUM', 
+    'PLUTONIUM_PELLET',
+    'ENCASED_PLUTONIUM_CELL',
+    'PLUTONIUM_WASTE',
+    
+]
 
 # ------------------------------------------------------------------------------
 # Populate the A matrix, c vector, and b_ub vector
