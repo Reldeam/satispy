@@ -30,6 +30,20 @@ Run `py optimize.py` to output a
 [summary.yaml](https://github.com/Reldeam/satispy/blob/main/summary.yaml) that 
 contains the quantities of each recipe needed.
 
+There are two variables at the start of **optimize.py**:
+```python
+disable_recipes = ['PLUTONIUM_POWER']
+unsinkable_items = ['WATER', 'URANIUM_WASTE', 'PLUTONIUM_WASTE']
+```
+
+- `disable_recipes` is a list of recipes that will not be used. Set this to
+an empty list `[]` if you want to use all of the recipes.
+- `unsinkable_items` is a list of items that cannot be produced at an excess,
+i.e. URANIUM_WASTE can be produced, but all of the produced URANIUM_WASTE must
+be used up by other recipes. This is useful if you want to have a "sustainable"
+world where no excess waste is produced that can't be sunk. If you don't care
+about the environment you can just set this variable to an empty list `[]`.
+
 While all of the recipes and alternative recipes in the game have been added,
 some may be found to have zero use when trying to maximise the objective function.
 All recipes that are not used will be exluded from the 
