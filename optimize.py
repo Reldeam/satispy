@@ -36,7 +36,6 @@ c = numpy.array([])
 # All other items have an upper bound of 0.
 b_ub = numpy.array([])
 
-
 # build the A matrix and c vector
 for key, recipe in Recipes.items():
     
@@ -51,13 +50,15 @@ for key, recipe in Recipes.items():
     # turn MJ/sec into MJ/min
     row['POWER'] = 60 * Buildings[recipe.building].power
 
-    for ingredient in recipe.ingredients:
-        row[ingredient.item] = ingredient.amount
-        sink_value -= ingredient.amount * Items[ingredient.item].sink_value
+    for input in recipe.input:
+        amount_per_min = (60 / recipe.crafting_time) * input.amount
+        row[input.item] = amount_per_min
+        sink_value -= amount_per_min * Items[input.item].sink_value
     
-    for result in recipe.result:
-        row[result.item] = -result.amount
-        sink_value += result.amount * Items[result.item].sink_value
+    for output in recipe.output:
+        amount_per_min = (60 / recipe.crafting_time) * output.amount
+        row[output.item] = -amount_per_min
+        sink_value += amount_per_min * Items[output.item].sink_value
 
     A_ub = A_ub.append(row, ignore_index = True)
     c = numpy.append(c, sink_value)
