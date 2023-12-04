@@ -10,6 +10,8 @@ def create_summary(name : str, summary : dict):
     with open('results/' + name + '-summary.yaml', 'w') as file:
         yaml.dump(summary, file, sort_keys=False)
 
+# The following are some examples of how to use the optimize functions.
+
 # ------------------------------------------------------------------------------
 # Creates a standard optimization with no constraints.
 summary = optimize_points()
