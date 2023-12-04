@@ -36,11 +36,13 @@ def optimize_item(
 def optimize_power(
     disable_recipes : [str] = [],
     disable_items : [str] = [],
-    unsinkable_items : [str] = []
+    unsinkable_items : [str] = [],
+    excess_only : bool = False # optimize for execess power only
 ):
     
     def f(recipe : Recipe):
-        return -Buildings[recipe.building].power
+        power = -Buildings[recipe.building].power
+        return power if excess_only else max(power, 0)
         
     return _solve(
         disable_recipes = disable_recipes, 
