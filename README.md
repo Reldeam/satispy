@@ -33,13 +33,28 @@ contains the quantities of each recipe needed.
 There are two variables at the start of **optimize.py**:
 ```python
 disable_recipes = ['PLUTONIUM_POWER']
-disabled_items = ['POWER']
-unsinkable_items = ['WATER', 'URANIUM_WASTE', 'PLUTONIUM_WASTE']
+disable_items = ['POWER']
+unsinkable_items = [
+    
+    'WATER',
+    'CRUDE_OIL',
+    'HEAVY_OIL_RESIDUE',
+    'FUEL',
+    'TURBOFUEL',
+    'ALUMINA_SOLUTION',
+    'SULFURIC_ACID',
+    'NITRIC_ACID',
+    'NITROGEN_GAS',
+    
+    'URANIUM_WASTE', 
+    'PLUTONIUM_WASTE'
+    
+]
 ```
 
 - `disable_recipes` is a list of recipes that will not be used. Set this to
 an empty list `[]` if you want to use all of the recipes.
-- `disabled_items` is a list of items that are ignored in all recipes for both
+- `disable_items` is a list of items that are ignored in all recipes for both
 inputs and outputs.
 - `unsinkable_items` is a list of items that cannot be produced at an excess,
 i.e. URANIUM_WASTE can be produced, but all of the produced URANIUM_WASTE must
