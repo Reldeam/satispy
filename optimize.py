@@ -3,15 +3,88 @@ import numpy
 from scipy import optimize
 
 from item import Items
-from recipe import Recipes
+from recipe import Recipe, Recipes
 from building import Buildings
 
-def solve(
+def optimize_item(
+    item : str,
+    disable_recipes : [str] = [],
+    disable_items : [str] = [],
+    unsinkable_items : [str] = []
+):
+    
+    def f(recipe : Recipe):
+        quantity = 0
+
+        for input in recipe.input:
+            if input.item == item:
+                quantity -= (60 / recipe.crafting_time) * input.amount
+        
+        for output in recipe.output:
+            if output.item == item:
+                quantity += (60 / recipe.crafting_time) * output.amount
+            
+        return quantity
+        
+    return _solve(
+        disable_recipes = disable_recipes, 
+        disable_items = disable_items, 
+        unsinkable_items = unsinkable_items,
+        f = f,
+    )
+
+def optimize_power(
+    disable_recipes : [str] = [],
+    disable_items : [str] = [],
+    unsinkable_items : [str] = []
+):
+    
+    def f(recipe : Recipe):
+        return -60 * Buildings[recipe.building].power
+        
+    return _solve(
+        disable_recipes = disable_recipes, 
+        disable_items = disable_items, 
+        unsinkable_items = unsinkable_items,
+        f = f,
+    )
+
+def optimize_points(
     disable_recipes : [str] = [], 
     disable_items : [str] = [], 
     unsinkable_items : [str] = []
 ):
-    # ------------------------------------------------------------------------------
+    
+    def f(recipe : Recipe):
+        
+        sink_value = 0
+
+        for input in recipe.input:
+            amount_per_min = (60 / recipe.crafting_time) * input.amount
+            sink_value -= amount_per_min * Items[input.item].sink_value
+        
+        for output in recipe.output:
+            amount_per_min = (60 / recipe.crafting_time) * output.amount
+            sink_value += amount_per_min * Items[output.item].sink_value
+            
+        return sink_value
+        
+    return _solve(
+        disable_recipes = disable_recipes, 
+        disable_items = disable_items, 
+        unsinkable_items = unsinkable_items,
+        f = f,
+    )
+
+def _solve(
+    disable_recipes : [str], 
+    disable_items : [str], 
+    unsinkable_items : [str],
+    f : callable
+):
+    
+    
+    # --------------------------------------------------------------------------
     # Populate the A matrix, c vector, and b_ub vector
 
     # Each row of the A matrix represents a recipe. Each column represents an item.
@@ -19,9 +92,9 @@ def solve(
     # represented by a negative value. The value is the amount of the item used or 
     # produced per minute.
     A_ub = pandas.DataFrame(columns = ['RECIPE'] + list(Items.keys()))
-
-    # The c vector represents the sink value of each recipe. This is the objective
-    # function.
+    
+    # The c vector represents the sink value of each recipe. This is the 
+    # objective function.
     c = numpy.array([])
 
     # The b_ub vector represents the limit of each item. This is the upper bound.
@@ -40,7 +113,6 @@ def solve(
         row = {
             'RECIPE': key
         }
-        sink_value = 0
 
         # turn MJ/sec into MJ/min
         row['POWER'] = 60 * Buildings[recipe.building].power
@@ -48,15 +120,13 @@ def solve(
         for input in recipe.input:
             amount_per_min = (60 / recipe.crafting_time) * input.amount
             row[input.item] = amount_per_min
-            sink_value -= amount_per_min * Items[input.item].sink_value
         
         for output in recipe.output:
             amount_per_min = (60 / recipe.crafting_time) * output.amount
             row[output.item] = -amount_per_min
-            sink_value += amount_per_min * Items[output.item].sink_value
 
         A_ub = A_ub.append(row, ignore_index = True)
-        c = numpy.append(c, sink_value)
+        c = numpy.append(c, f(recipe))
 
     A_ub = A_ub.fillna(0)
     A_ub = A_ub.set_index('RECIPE')
@@ -78,7 +148,7 @@ def solve(
     A_eq = A_ub.loc[A_ub.index.isin(unsinkable_items)]
     b_eq = numpy.zeros(len(A_eq.index))
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Solve the linear program
 
     # Solve the linear program - this will minimize the objective function, so we
@@ -91,7 +161,7 @@ def solve(
         b_eq = b_eq,
     )
 
-    # ------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Output the results
 
     coefficients =  numpy.around(analysis.x, 4).tolist()
@@ -104,7 +174,7 @@ def solve(
     excess_power = 0
     for key, value in used_recipes.items():
         recipe = Recipes[key]
-        amount = Buildings[recipe.building].power * value
+        amount = -Buildings[recipe.building].power * value
         excess_power += amount
         if amount > 0:
             power_produced += amount

@@ -26,13 +26,10 @@ innacurate if not all of the wells are utilized.
 
 ## Run
 
-Run `py satispy.py` to output: 
-- [summary.yaml](https://github.com/Reldeam/satispy/blob/main/results/summary.yaml) 
-that contains the quantities of each recipe needed (no contraints on the optimization).
-- [eco-summary.yaml](https://github.com/Reldeam/satispy/blob/main/results/eco-summary.yaml) 
-that contains a constrained solution that prevents excess unsinkable products being produced.
+Run `py satispy.py` to output serveral different types of summaries that will be
+outputed to the [results directory](https://github.com/Reldeam/satispy/blob/main/results).
 
-There are three parameters you can tweek when running the `solve` method found
+There are three parameters you can tweek when running any of the optimize methods found
 in [optimize.py](https://github.com/Reldeam/satispy/blob/main/optimize.py) :
 ```python
 disable_recipes = ['PLUTONIUM_POWER']
@@ -67,6 +64,9 @@ i.e. URANIUM_WASTE can be produced, but all of the produced URANIUM_WASTE must
 be used up by other recipes. This is useful if you want to have a "sustainable"
 world where no excess waste is produced that can't be sunk. If you don't care
 about the environment you can just set this variable to an empty list `[]`.
+
+The `optimize_item` method also requires an `item` to be given that will be
+optimised for.
 
 While all of the recipes and alternative recipes in the game have been added,
 some may be found to have zero use when trying to maximise the objective function.
