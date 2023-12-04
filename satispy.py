@@ -13,7 +13,7 @@ def create_summary(name : str, summary : dict):
 # ------------------------------------------------------------------------------
 # Creates a standard optimization with no constraints.
 summary = optimize_points()
-create_summary('standard', summary)
+create_summary('points', summary)
 
 # ------------------------------------------------------------------------------
 # I'm looking to make an optimized set of recipies for PPM without creating
@@ -44,7 +44,7 @@ summary = optimize_points(
         
     ]
 )
-create_summary('sustainable', summary)
+create_summary('sustainable-points', summary)
 
 # ------------------------------------------------------------------------------
 # Optimize for the most efficient way to produce power.
