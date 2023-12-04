@@ -99,17 +99,22 @@ def solve(
 
     # ignore recipes that are not used
     used_recipes = {k:v for k, v in all_recipes.items() if v > 0}
-
+    
+    power_produced = 0
     excess_power = 0
     for key, value in used_recipes.items():
         recipe = Recipes[key]
-        excess_power += Buildings[recipe.building].power * value
+        amount = Buildings[recipe.building].power * value
+        excess_power += amount
+        if amount > 0:
+            power_produced += amount
 
     total_buildings = sum(used_recipes.values())
 
     summary = {
         "ppm": round(-analysis.fun, 4),
         "total_buildings": round(total_buildings, 4),
+        "power_produced": round(power_produced, 4),
         "excess_power": round(excess_power, 4),
         "recipes": used_recipes
     }

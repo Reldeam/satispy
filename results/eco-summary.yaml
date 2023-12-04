@@ -1,5 +1,6 @@
 ppm: 177495241.9596
 total_buildings: 33570.3853
+power_produced: 596837.9774
 excess_power: -0.0226
 recipes:
   URANIUM_POWER: 238.7352
