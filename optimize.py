@@ -105,11 +105,17 @@ all_recipes = {k:v for k, v in zip(list(A_ub.columns), coefficients)}
 # ignore recipes that are not used
 used_recipes = {k:v for k, v in all_recipes.items() if v > 0}
 
+excess_power = 0
+for key, value in used_recipes.items():
+    recipe = Recipes[key]
+    excess_power += Buildings[recipe.building].power * value
+
 total_buildings = sum(used_recipes.values())
 
 summary = {
     "ppm": round(-analysis.fun, 2),
     "total_buildings": round(total_buildings, 2),
+    "excess_power": round(excess_power, 2),
     "recipes": used_recipes
 }
 

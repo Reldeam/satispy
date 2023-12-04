@@ -1,5 +1,6 @@
 ppm: 179446681.96
 total_buildings: 33660.27
+excess_power: 6.78
 recipes:
   URANIUM_POWER: 238.07
   PURE_NITROGEN_GAS: 30.8
