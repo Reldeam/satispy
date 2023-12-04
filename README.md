@@ -47,7 +47,10 @@ unsinkable_items = [
     'NITROGEN_GAS',
     
     'URANIUM_WASTE', 
-    'PLUTONIUM_WASTE'
+    'PLUTONIUM_WASTE',
+    'NON_FISSILE_URANIUM',
+    'PLUTONIUM_PELLET',
+    'ENCASED_PLUTONIUM_CELL',
     
 ]
 ```
