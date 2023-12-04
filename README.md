@@ -1,4 +1,4 @@
-# SATISPY - Factory Game Production Optimiser
+# SATISPY - Factory Game Production Optimizer
 
 This is just a small tool to find the most Awesome Sink Points you can make
 per minute. The objective function is set to the points you get for each
@@ -26,11 +26,14 @@ innacurate if not all of the wells are utilized.
 
 ## Run
 
-Run `py optimize.py` to output a 
-[summary.yaml](https://github.com/Reldeam/satispy/blob/main/summary.yaml) that 
-contains the quantities of each recipe needed.
+Run `py satispy.py` to output: 
+- [summary.yaml](https://github.com/Reldeam/satispy/blob/main/results/summary.yaml) 
+that contains the quantities of each recipe needed (no contraints on the optimization).
+- [eco-summary.yaml](https://github.com/Reldeam/satispy/blob/main/results/eco-summary.yaml) 
+that contains a constrained solution that prevents excess unsinkable products being produced.
 
-There are two variables at the start of **optimize.py**:
+There are three parameters you can tweek when running the `solve` method found
+in [optimize.py](https://github.com/Reldeam/satispy/blob/main/optimize.py) :
 ```python
 disable_recipes = ['PLUTONIUM_POWER']
 disable_items = ['POWER']
