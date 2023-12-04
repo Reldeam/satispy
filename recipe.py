@@ -347,8 +347,9 @@ Recipes = {
 
     'PURE_COPPER_INGOT': Recipe(
         'REFINERY', 
-        [Ingredient('COPPER_ORE', 15), Ingredient('WATER', 10)], 
-        [Ingredient('COPPER_INGOT', 37.5)]
+        [Ingredient('COPPER_ORE', 6), Ingredient('WATER', 4)], 
+        [Ingredient('COPPER_INGOT', 15)],
+        24
     ),
 
     'CATERIUM_INGOT': Recipe(
@@ -377,8 +378,9 @@ Recipes = {
 
     'COMPACTED_STEEL_INGOT': Recipe(
         'FOUNDRY', 
-        [Ingredient('IRON_ORE', 22.5), Ingredient('COMPACTED_COAL', 11.25)], 
-        [Ingredient('STEEL_INGOT', 37.5)]
+        [Ingredient('IRON_ORE', 6), Ingredient('COMPACTED_COAL', 3)], 
+        [Ingredient('STEEL_INGOT', 10)],
+        16
     ),
 
     'SOLID_STEEL_INGOT': Recipe(
@@ -409,8 +411,9 @@ Recipes = {
 
     'FINE_CONCRETE': Recipe(
         'ASSEMBLER', 
-        [Ingredient('LIMESTONE', 30), Ingredient('SILICA', 7.5)], 
-        [Ingredient('CONCRETE', 25)]
+        [Ingredient('LIMESTONE', 12), Ingredient('SILICA', 3)], 
+        [Ingredient('CONCRETE', 10)],
+        24
     ),
 
     'RUBBER_CONCRETE': Recipe(
@@ -427,26 +430,30 @@ Recipes = {
     
     'QUARTZ_CRYSTAL': Recipe(
         'CONSTRUCTOR', 
-        [Ingredient('RAW_QUARTZ', 37.5)], 
-        [Ingredient('QUARTZ_CRYSTAL', 22.5)]
+        [Ingredient('RAW_QUARTZ', 5)], 
+        [Ingredient('QUARTZ_CRYSTAL', 3)],
+        8
     ),
 
     'PURE_QUARTZ_CRYSTAL': Recipe(
         'REFINERY', 
-        [Ingredient('RAW_QUARTZ', 67.5), Ingredient('WATER', 37.5)], 
-        [Ingredient('QUARTZ_CRYSTAL', 52.5)]
+        [Ingredient('RAW_QUARTZ', 9), Ingredient('WATER', 5)], 
+        [Ingredient('QUARTZ_CRYSTAL', 7)],
+        8
     ),
 
     'SILICA': Recipe(
         'CONSTRUCTOR', 
-        [Ingredient('RAW_QUARTZ', 22.5)], 
-        [Ingredient('SILICA', 37.5)]
+        [Ingredient('RAW_QUARTZ', 3)], 
+        [Ingredient('SILICA', 5)],
+        8
     ),
 
     'CHEAP_SILICA': Recipe(
         'ASSEMBLER', 
-        [Ingredient('RAW_QUARTZ', 11.25), Ingredient('LIMESTONE', 18.75)], 
-        [Ingredient('SILICA', 26.25)]
+        [Ingredient('RAW_QUARTZ', 3), Ingredient('LIMESTONE', 5)], 
+        [Ingredient('SILICA', 7)],
+        16
     ),
     
     'COPPER_POWDER': Recipe(
@@ -537,8 +544,9 @@ Recipes = {
     
     'TURBOFUEL': Recipe(
         'REFINERY', 
-        [Ingredient('FUEL', 22.5), Ingredient('COMPACTED_COAL', 15)], 
-        [Ingredient('TURBOFUEL', 18.75)]
+        [Ingredient('FUEL', 6), Ingredient('COMPACTED_COAL', 4)], 
+        [Ingredient('TURBOFUEL', 5)],
+        16
     ),
 
     'UNPACKAGE_TURBOFUEL': Recipe(
@@ -554,8 +562,9 @@ Recipes = {
     ),
     'TURBO_HEAVY_FUEL': Recipe(
         'REFINERY', 
-        [Ingredient('HEAVY_OIL_RESIDUE', 37.5), Ingredient('COMPACTED_COAL', 30)], 
-        [Ingredient('TURBOFUEL', 30)]
+        [Ingredient('HEAVY_OIL_RESIDUE', 5), Ingredient('COMPACTED_COAL', 4)], 
+        [Ingredient('TURBOFUEL', 4)],
+        8
     ),
     
     'ALUMINA_SOLUTION': Recipe(
@@ -628,8 +637,9 @@ Recipes = {
 
     'CAST_SCREW': Recipe(
         'CONSTRUCTOR', 
-        [Ingredient('IRON_INGOT', 12.5)], 
-        [Ingredient('SCREW', 50)]
+        [Ingredient('IRON_INGOT', 5)], 
+        [Ingredient('SCREW', 20)],
+        24
     ),
 
     'STEEL_SCREW': Recipe(
@@ -652,8 +662,9 @@ Recipes = {
 
     'STEEL_COATED_PLATE': Recipe(
         'ASSEMBLER', 
-        [Ingredient('STEEL_INGOT', 7.5), Ingredient('PLASTIC', 5)], 
-        [Ingredient('IRON_PLATE', 45)]
+        [Ingredient('STEEL_INGOT', 3), Ingredient('PLASTIC', 2)], 
+        [Ingredient('IRON_PLATE', 18)],
+        24
     ),
 
     'REINFORCED_IRON_PLATE': Recipe(
@@ -664,8 +675,9 @@ Recipes = {
 
     'ADHERED_IRON_PLATE': Recipe(
         'ASSEMBLER', 
-        [Ingredient('IRON_PLATE', 11.25), Ingredient('RUBBER', 3.75)], 
-        [Ingredient('REINFORCED_IRON_PLATE', 3.75)]
+        [Ingredient('IRON_PLATE', 3), Ingredient('RUBBER', 1)], 
+        [Ingredient('REINFORCED_IRON_PLATE', 1)],
+        16
     ),
 
     'BOLTED_IRON_PLATE': Recipe(
@@ -689,8 +701,9 @@ Recipes = {
 
     'STEAMED_COPPER_SHEET': Recipe(
         'REFINERY', 
-        [Ingredient('COPPER_INGOT', 22.5), Ingredient('WATER', 22.5)], 
-        [Ingredient('COPPER_SHEET', 22.5)]
+        [Ingredient('COPPER_INGOT', 3), Ingredient('WATER', 3)], 
+        [Ingredient('COPPER_SHEET', 3)],
+        8
     ),
 
     'ALCLAD_ALUMINUM_SHEET': Recipe(
@@ -707,8 +720,9 @@ Recipes = {
 
     'ALCLAD_CASING': Recipe(
         'ASSEMBLER', 
-        [Ingredient('ALUMINUM_INGOT', 150), Ingredient('COPPER_INGOT', 75)], 
-        [Ingredient('ALUMINUM_CASING', 112.5)]
+        [Ingredient('ALUMINUM_INGOT', 20), Ingredient('COPPER_INGOT', 10)], 
+        [Ingredient('ALUMINUM_CASING', 15)],
+        8
     ),
 
     'STEEL_PIPE': Recipe(
@@ -1042,20 +1056,23 @@ Recipes = {
 
     'COMPUTER': Recipe(
         'MANUFACTURER', 
-        [Ingredient('CIRCUIT_BOARD', 25), Ingredient('CABLE', 22.5), Ingredient('PLASTIC', 45), Ingredient('SCREW', 130)], 
-        [Ingredient('COMPUTER', 2.5)]
+        [Ingredient('CIRCUIT_BOARD', 10), Ingredient('CABLE', 9), Ingredient('PLASTIC', 18), Ingredient('SCREW', 52)], 
+        [Ingredient('COMPUTER', 1)],
+        24
     ),
 
     'CATERIUM_COMPUTER': Recipe(
         'MANUFACTURER', 
-        [Ingredient('CIRCUIT_BOARD', 26.25), Ingredient('QUICKWIRE', 105), Ingredient('RUBBER', 45)], 
-        [Ingredient('COMPUTER', 3.75)]
+        [Ingredient('CIRCUIT_BOARD', 7), Ingredient('QUICKWIRE', 28), Ingredient('RUBBER', 12)], 
+        [Ingredient('COMPUTER', 1)],
+        16
     ),
 
     'CRYSTAL_COMPUTER': Recipe(
         'ASSEMBLER', 
-        [Ingredient('CIRCUIT_BOARD', 7.5), Ingredient('CRYSTAL_OSCILLATOR', 2.81)], 
-        [Ingredient('COMPUTER', 2.81)]
+        [Ingredient('CIRCUIT_BOARD', 8), Ingredient('CRYSTAL_OSCILLATOR', 3)], 
+        [Ingredient('COMPUTER', 3)],
+        64
     ),
 
     'SUPERCOMPUTER': Recipe(
@@ -1313,32 +1330,37 @@ Recipes = {
 
     'PLASTIC_SMART_PLATING': Recipe(
         'MANUFACTURER', 
-        [Ingredient('REINFORCED_IRON_PLATE', 2.5), Ingredient('ROTOR', 2.5), Ingredient('PLASTIC', 7.5)], 
-        [Ingredient('SMART_PLATING', 5)]
+        [Ingredient('REINFORCED_IRON_PLATE', 1), Ingredient('ROTOR', 1), Ingredient('PLASTIC', 3)], 
+        [Ingredient('SMART_PLATING', 2)],
+        24
     ),
 
     'VERSATILE_FRAMEWORK': Recipe(
         'ASSEMBLER', 
-        [Ingredient('MODULAR_FRAME', 2.5), Ingredient('STEEL_PIPE', 30)], 
-        [Ingredient('VERSATILE_FRAMEWORK', 5)]
+        [Ingredient('MODULAR_FRAME', 1), Ingredient('STEEL_PIPE', 12)], 
+        [Ingredient('VERSATILE_FRAMEWORK', 2)],
+        24
     ),
 
     'FLEXIBLE_FRAMEWORK':Recipe(
         'MANUFACTURER', 
-        [Ingredient('MODULAR_FRAME', 3.75), Ingredient('STEEL_BEAM', 22.5), Ingredient('RUBBER', 30)], 
-        [Ingredient('VERSATILE_FRAMEWORK', 7.5)]
+        [Ingredient('MODULAR_FRAME', 1), Ingredient('STEEL_BEAM', 6), Ingredient('RUBBER', 8)], 
+        [Ingredient('VERSATILE_FRAMEWORK', 2)],
+        16
     ),
 
     'AUTOMATED_WIRING': Recipe(
         'ASSEMBLER', 
-        [Ingredient('CABLE', 50), Ingredient('STATOR', 2.5)], 
-        [Ingredient('AUTOMATED_WIRING', 2.5)]
+        [Ingredient('CABLE', 20), Ingredient('STATOR',1)], 
+        [Ingredient('AUTOMATED_WIRING', 1)],
+        24
     ),
 
     'AUTOMATED_SPEED_WIRING':Recipe(
         'MANUFACTURER', 
-        [Ingredient('STATOR', 3.75), Ingredient('WIRE', 75), Ingredient('HIGH_SPEED_CONNECTOR', 1.88)], 
-        [Ingredient('AUTOMATED_WIRING', 7.5)]
+        [Ingredient('STATOR', 2), Ingredient('WIRE', 40), Ingredient('HIGH_SPEED_CONNECTOR', 1)], 
+        [Ingredient('AUTOMATED_WIRING', 4)],
+        32
     ),
 
     'MODULAR_ENGINE': Recipe(
@@ -1349,14 +1371,16 @@ Recipes = {
 
     'ADAPTIVE_CONTROL_UNIT': Recipe(
         'MANUFACTURER', 
-        [Ingredient('AUTOMATED_WIRING', 7.5), Ingredient('CIRCUIT_BOARD', 5), Ingredient('HEAVY_MODULAR_FRAME', 1), Ingredient('COMPUTER', 1)], 
-        [Ingredient('ADAPTIVE_CONTROL_UNIT', 1)]
+        [Ingredient('AUTOMATED_WIRING', 15), Ingredient('CIRCUIT_BOARD', 10), Ingredient('HEAVY_MODULAR_FRAME', 2), Ingredient('COMPUTER', 2)], 
+        [Ingredient('ADAPTIVE_CONTROL_UNIT', 2)],
+        120
     ),
 
     'ASSEMBLY_DIRECTOR_SYSTEM': Recipe(
         'ASSEMBLER', 
-        [Ingredient('ADAPTIVE_CONTROL_UNIT', 1.5), Ingredient('SUPERCOMPUTER', 0.75)], 
-        [Ingredient('ASSEMBLY_DIRECTOR_SYSTEM', 0.75)]
+        [Ingredient('ADAPTIVE_CONTROL_UNIT', 2), Ingredient('SUPERCOMPUTER', 1)], 
+        [Ingredient('ASSEMBLY_DIRECTOR_SYSTEM', 1)],
+        80
     ),
 
     'MAGNETIC_FIELD_GENERATOR': Recipe(
@@ -1367,14 +1391,16 @@ Recipes = {
 
     'THERMAL_PROPULSION_ROCKET': Recipe(
         'MANUFACTURER', 
-        [Ingredient('MODULAR_ENGINE', 2.5), Ingredient('TURBO_MOTOR', 1), Ingredient('COOLING_SYSTEM', 3), Ingredient('FUSED_MODULAR_FRAME', 1)], 
-        [Ingredient('THERMAL_PROPULSION_ROCKET', 1)]
+        [Ingredient('MODULAR_ENGINE', 5), Ingredient('TURBO_MOTOR', 2), Ingredient('COOLING_SYSTEM', 6), Ingredient('FUSED_MODULAR_FRAME', 2)], 
+        [Ingredient('THERMAL_PROPULSION_ROCKET', 2)],
+        120
     ),
 
     'NUCLEAR_PASTA': Recipe(
         'PARTICAL_ACCELERATOR_NUCLEAR_PASTA', 
-        [Ingredient('COPPER_POWDER', 100), Ingredient('PRESSURE_CONVERSION_CUBE', 0.5)], 
-        [Ingredient('NUCLEAR_PASTA', 0.5)]
+        [Ingredient('COPPER_POWDER', 200), Ingredient('PRESSURE_CONVERSION_CUBE', 1)], 
+        [Ingredient('NUCLEAR_PASTA', 1)],
+        120
     ),
 
 }
