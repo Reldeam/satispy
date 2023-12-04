@@ -40,7 +40,7 @@ def optimize_power(
 ):
     
     def f(recipe : Recipe):
-        return -60 * Buildings[recipe.building].power
+        return -Buildings[recipe.building].power
         
     return _solve(
         disable_recipes = disable_recipes, 
@@ -182,7 +182,7 @@ def _solve(
     total_buildings = sum(used_recipes.values())
 
     summary = {
-        "ppm": round(-analysis.fun, 4),
+        "score": round(-analysis.fun, 4),
         "total_buildings": round(total_buildings, 4),
         "power_produced": round(power_produced, 4),
         "excess_power": round(excess_power, 4),
