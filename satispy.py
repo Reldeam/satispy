@@ -35,25 +35,25 @@ create_summary('thermal-propulsion-rocket', summary)
 summary = optimize_points(
     disable_recipes = ['PLUTONIUM_POWER'],
     disable_items = [],
-    unsinkable_items = [
+    excess_items = {
         
-        'WATER',
-        'CRUDE_OIL',
-        'HEAVY_OIL_RESIDUE',
-        'FUEL',
-        'TURBOFUEL',
-        'ALUMINA_SOLUTION',
-        'SULFURIC_ACID',
-        'NITRIC_ACID',
-        'NITROGEN_GAS',
+        'WATER': 0,
+        'CRUDE_OIL': 0,
+        'HEAVY_OIL_RESIDUE': 0,
+        'FUEL': 0,
+        'TURBOFUEL': 0,
+        'ALUMINA_SOLUTION': 0,
+        'SULFURIC_ACID': 0,
+        'NITRIC_ACID': 0,
+        'NITROGEN_GAS': 0,
         
-        'URANIUM_WASTE', 
-        'PLUTONIUM_WASTE',
-        'NON_FISSILE_URANIUM',
-        'PLUTONIUM_PELLET',
-        'ENCASED_PLUTONIUM_CELL',
+        'URANIUM_WASTE': 0, 
+        'PLUTONIUM_WASTE': 0,
+        'NON_FISSILE_URANIUM': 0,
+        'PLUTONIUM_PELLET': 0,
+        'ENCASED_PLUTONIUM_CELL': 0,
         
-    ]
+    },
 )
 create_summary('sustainable-points', summary)
 
@@ -67,28 +67,27 @@ create_summary('sustainable-points', summary)
 summary = optimize_points(
     disable_recipes = ['PLUTONIUM_POWER'],
     disable_items = [],
-    unsinkable_items = [
+    excess_items = {
         
-        'WATER',
-        'CRUDE_OIL',
-        'HEAVY_OIL_RESIDUE',
-        'FUEL',
-        'TURBOFUEL',
-        'ALUMINA_SOLUTION',
-        'SULFURIC_ACID',
-        'NITRIC_ACID',
-        'NITROGEN_GAS',
+        'WATER': 0,
+        'CRUDE_OIL': 0,
+        'HEAVY_OIL_RESIDUE': 0,
+        'FUEL': 0,
+        'TURBOFUEL': 0,
+        'ALUMINA_SOLUTION': 0,
+        'SULFURIC_ACID': 0,
+        'NITRIC_ACID': 0,
+        'NITROGEN_GAS': 0,
         
-        'URANIUM_WASTE', 
-        'PLUTONIUM_WASTE',
-        'NON_FISSILE_URANIUM',
-        'PLUTONIUM_PELLET',
-        'ENCASED_PLUTONIUM_CELL',
+        'URANIUM_WASTE': 0, 
+        'PLUTONIUM_WASTE': 0,
+        'NON_FISSILE_URANIUM': 0,
+        'PLUTONIUM_PELLET': 0,
+        'ENCASED_PLUTONIUM_CELL': 0,
+
+        'POWER': 60 * 2000, # for trains
+        'BATTERY': 500 # for drones
         
-    ],
-    ingredient_bounds = {
-        "POWER": (60 * 2000, None), # for trains
-        "BATTERY": (500, None) # for drones
     }
 )
 create_summary('custom', summary)
