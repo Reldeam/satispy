@@ -59,9 +59,10 @@ create_summary('sustainable-points', summary)
 
 # ------------------------------------------------------------------------------
 # For my own map, I'm looking to make an optimized set of recipies for PPM 
-# without creating any waste.
-# I also need some spare power for trains and batteries for drones so that the
-# map is fun.
+# without creating any waste. I also need some spare power for trains and 
+# batteries for drones so that the map is fun (there will be lots of plutonium
+# fuel rods avaiable for trucks by vertue of not using them for power and
+# preventing any excess uranium waste).
 
 summary = optimize_points(
     disable_recipes = ['PLUTONIUM_POWER'],
@@ -86,8 +87,8 @@ summary = optimize_points(
         
     ],
     ingredient_bounds = {
-        "POWER": (60 * 20000, None),
-        "BATTERY": (100, )
+        "POWER": (60 * 2000, None), # for trains
+        "BATTERY": (500, None) # for drones
     }
 )
 create_summary('custom', summary)
